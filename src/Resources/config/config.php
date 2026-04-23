@@ -14,8 +14,8 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 use FOS\ElasticaBundle\Configuration\ConfigManager;
 use FOS\ElasticaBundle\DataCollector\ElasticaDataCollector;
 use FOS\ElasticaBundle\Elastica\Client;
-use FOS\ElasticaBundle\Elastica\NodePool\RoundRobinNoResurrect;
-use FOS\ElasticaBundle\Elastica\NodePool\RoundRobinResurrect;
+//use FOS\ElasticaBundle\Elastica\NodePool\RoundRobinNoResurrect;
+//use FOS\ElasticaBundle\Elastica\NodePool\RoundRobinResurrect;
 use FOS\ElasticaBundle\Index\MappingBuilder;
 use FOS\ElasticaBundle\Logger\ElasticaLogger;
 use FOS\ElasticaBundle\Subscriber\PaginateElasticaQuerySubscriber;
@@ -38,13 +38,13 @@ return static function (ContainerConfigurator $container): void {
         ->call('setEventDispatcher', [service('event_dispatcher')->nullOnInvalid()])
     ;
 
-    $services->set(RoundRobinResurrect::class)
-        ->factory([null, 'create'])
-    ;
-
-    $services->set(RoundRobinNoResurrect::class)
-        ->factory([null, 'create'])
-    ;
+//    $services->set(RoundRobinResurrect::class)
+//        ->factory([null, 'create'])
+//    ;
+//
+//    $services->set(RoundRobinNoResurrect::class)
+//        ->factory([null, 'create'])
+//    ;
 
     $services->set('fos_elastica.config_manager', ConfigManager::class)
         ->args([[]])
