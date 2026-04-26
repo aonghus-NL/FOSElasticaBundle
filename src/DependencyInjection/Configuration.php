@@ -341,6 +341,7 @@ class Configuration implements ConfigurationInterface
                             ->scalarNode('username')->end()
                             ->scalarNode('password')->end()
                             ->scalarNode('http_client')->end()
+                            ->scalarNode('custom_http_client')->end()
                             ->scalarNode('cloud_id')->end()
                             ->scalarNode('retries')->end()
                             ->scalarNode('api_key')->end()

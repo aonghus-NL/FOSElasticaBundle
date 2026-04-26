@@ -165,6 +165,10 @@ class FOSElasticaExtension extends Extension
                 }
             }
 
+            if (!isset($clientConfig['http_client']) && isset($clientConfig['custom_http_client'])) {
+                $clientConfig['http_client'] = $clientConfig['custom_http_client'];
+            }
+
             $config = [
                 'hosts' => $clientConfig['hosts'],
                 'retryOnConflict' => $clientConfig['retry_on_conflict'],
@@ -186,6 +190,10 @@ class FOSElasticaExtension extends Extension
                     'node_pool' => null,
                 ],
             ];
+
+            if (isset($clientConfig['custom_http_client'])) {
+                $config['transport_config']['http_client_options'] = [];
+            }
 
             $httpErrorCodes = $clientConfig['http_error_codes'];
 
